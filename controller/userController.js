@@ -6,24 +6,24 @@ export const createUser = async (req, res) => {
     if (existUser) return res.status(400).json({ message: "user already exist" })
     try {
 
-        const hashedPassword = await bcrypt.hash(password, 10)
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
 
         await userModel.create({
             ...req.body,
             password: hashedPassword,
         })
-        res.status(201).json({ message: "user created" })
+        res.status(200).json({ message: "user created" })
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
 }
 
-export const getAllUsers = async (res) => {
+export const getAllUsers = async (req,res) => {
     try {
-        const user = await userModel.find()
-        res.status(201).json(user)
+        const users = await userModel.find()
+        res.status(200).json(users)
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json({ messege: error.messege })
     }
 }
 

@@ -4,15 +4,14 @@ import { createBlog, deleteBlog, getAllBlogs, getBlog, updateBlog } from "../con
 
 const router = express.Router()
 
-
-router.route("/").get(getAllBlogs)
-    .post(createBlog)
-
-router.route("/").get(getBlog)
-    .put(updateBlog)
-    .delete(deleteBlog);
+const baseUrl = "/api/blog"
 
 
+router.get(`${baseUrl}`, getAllBlogs)
+router.get(`${baseUrl}/:id`, getBlog)
+router.post(`${baseUrl}`, createBlog)
+router.put(`${baseUrl}/:id`, updateBlog)
+router.delete(`${baseUrl}/:id `, deleteBlog)
 
 
 

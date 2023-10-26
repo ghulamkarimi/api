@@ -9,14 +9,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const baseUrl = "/api/"
+
 app.use(cors())
 app.use(express.json());
  
-app.use(`${baseUrl}blog`,blogRouter)
-app.use(`${baseUrl}user`,userRouter)
+app.use(blogRouter)
+app.use(userRouter)
 
-const PORT = process.env.PORT |4008
+const PORT = process.env.PORT |4010
 
 app.listen(PORT, ()=>{
     console.log(`port is connected an port ${PORT}`)
