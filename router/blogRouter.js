@@ -11,6 +11,7 @@ router.get(`${baseUrl}`, getAllBlogs)
 router.get(`${baseUrl}/:id`, getBlog)
 router.post(`${baseUrl}`, createBlog)
 router.put(`${baseUrl}/:id`, updateBlog)
+
 router.delete(`${baseUrl}/:id`, deleteBlog)
 
 
