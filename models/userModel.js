@@ -12,13 +12,13 @@ const validateName = (name) => {
 const userSchema = mongoose.Schema({
 
    firstName: {
-      type: String, trim: true, maxLength: 30, validate: {
+      type: String, maxLength: 30, validate: {
          validator: validateName,
          message: "Invalid Name Format"
       }
    },
    lastName: {
-      type: String, trim: true, maxLength: 30, validate: {
+      type: String, maxLength: 30, validate: {
          validator: validateName,
          message: "Invalid Name Format"
       }
